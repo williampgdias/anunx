@@ -5,12 +5,16 @@ import {
   Typography,
   Select,
   Button,
+  IconButton,
 } from '@mui/material';
+import { DeleteForever } from '@mui/icons-material';
 import { makeStyles } from '@mui/styles';
 
 import TemplateDefault from '../../src/templates/Default';
 
 const useStyles = makeStyles((theme) => ({
+  mask: {},
+  mainImage: {},
   container: {
     padding: theme.spacing(8, 0, 6),
   },
@@ -20,6 +24,51 @@ const useStyles = makeStyles((theme) => ({
   box: {
     backgroundColor: theme.palette.background.white,
     padding: theme.spacing(3),
+  },
+  thumbsContainer: {
+    display: 'flex',
+    marginTop: 15,
+  },
+  dropzone: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+    padding: 10,
+    width: 200,
+    height: 150,
+    margin: '0 15px 15px 0',
+    backgroundColor: theme.palette.background.default,
+    border: '2px dashed black',
+  },
+  thumb: {
+    position: 'relative',
+    width: 200,
+    height: 150,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center center',
+
+    '& $mainImage': {
+      backgroundColor: 'blue',
+      padding: '6px 10px',
+      position: 'absolute',
+      bottom: 0,
+      left: 0,
+    },
+
+    '&:hover $mask': {
+      display: 'flex',
+    },
+
+    '& $mask': {
+      display: 'none',
+      justifyContent: 'center',
+      alignItems: 'center',
+      textAlign: 'center',
+      backgroundColor: 'rgba(0, 0, 0, 0.7)',
+      width: '100%',
+      height: '100%',
+    },
   },
 }));
 
@@ -125,6 +174,37 @@ const Publish = () => {
           >
             The first image is the main of the add.
           </Typography>
+          <Box className={classes.thumbsContainer}>
+            <Box className={classes.dropzone}>
+              <Typography
+                variant='body2'
+                color='textPrimary'
+              >
+                Click to add or drag the img here.
+              </Typography>
+            </Box>
+
+            <Box
+              className={classes.thumb}
+              style={{
+                backgroundImage: 'url(https://source.unsplash.com/random)',
+              }}
+            >
+              <Box className={classes.mainImage}>
+                <Typography
+                  variant='body'
+                  color='secondary'
+                >
+                  Main
+                </Typography>
+              </Box>
+              <Box className={classes.mask}>
+                <IconButton color='secondary'>
+                  <DeleteForever fontSize='large' />
+                </IconButton>
+              </Box>
+            </Box>
+          </Box>
         </Box>
       </Container>
 
