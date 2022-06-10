@@ -1,4 +1,11 @@
-import { Box, Container, TextField, Typography, Select } from '@mui/material';
+import {
+  Box,
+  Container,
+  TextField,
+  Typography,
+  Select,
+  Button,
+} from '@mui/material';
 import { makeStyles } from '@mui/styles';
 
 import TemplateDefault from '../../src/templates/Default';
@@ -6,6 +13,9 @@ import TemplateDefault from '../../src/templates/Default';
 const useStyles = makeStyles((theme) => ({
   container: {
     padding: theme.spacing(8, 0, 6),
+  },
+  boxContainer: {
+    paddingBottom: theme.spacing(3),
   },
   box: {
     backgroundColor: theme.palette.background.white,
@@ -40,7 +50,10 @@ const Publish = () => {
         </Typography>
       </Container>
 
-      <Container maxWidth='md'>
+      <Container
+        maxWidth='md'
+        className={classes.boxContainer}
+      >
         <Box className={classes.box}>
           <Typography
             component='h6'
@@ -90,6 +103,111 @@ const Publish = () => {
             <option value={3}>Jobs</option>
             <option value={3}>Others</option>
           </Select>
+        </Box>
+      </Container>
+
+      <Container
+        maxWidth='md'
+        className={classes.boxContainer}
+      >
+        <Box className={classes.box}>
+          <Typography
+            component='h6'
+            variant='h6'
+            color='textPrimary'
+          >
+            Images
+          </Typography>
+          <Typography
+            component='div'
+            variant='body2'
+            color='textPrimary'
+          >
+            The first image is the main of the add.
+          </Typography>
+        </Box>
+      </Container>
+
+      <Container
+        maxWidth='md'
+        className={classes.boxContainer}
+      >
+        <Box className={classes.box}>
+          <Typography
+            component='h6'
+            variant='h6'
+            color='textPrimary'
+          >
+            Description
+          </Typography>
+          <Typography
+            component='div'
+            variant='body2'
+            color='textPrimary'
+          >
+            Write the details of what you are looking.
+          </Typography>
+          <TextField
+            multiline
+            rows={6}
+            variant='outlined'
+            fullWidth
+          />
+        </Box>
+      </Container>
+
+      <Container
+        maxWidth='md'
+        className={classes.boxContainer}
+      >
+        <Box className={classes.box}>
+          <Typography
+            component='h6'
+            variant='h6'
+            color='textPrimary'
+            gutterBottom
+          >
+            Contact
+          </Typography>
+
+          <TextField
+            label='Name'
+            variant='outlined'
+            size='small'
+            fullWidth
+          />
+          <br />
+          <br />
+          <TextField
+            label='E-mail'
+            variant='outlined'
+            size='small'
+            fullWidth
+          />
+          <br />
+          <br />
+          <TextField
+            label='Phone number'
+            variant='outlined'
+            size='small'
+            fullWidth
+          />
+          <br />
+          <br />
+        </Box>
+      </Container>
+
+      <Container
+        maxWidth='md'
+        className={classes.boxContainer}
+      >
+        <Box textAlign='right'>
+          <Button
+            variant='contained'
+            color='primary'
+          >
+            Publish Add
+          </Button>
         </Box>
       </Container>
     </TemplateDefault>
